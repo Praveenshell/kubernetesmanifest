@@ -3,36 +3,36 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: flaskdemo
-  name: flaskdemo
+    app: webapp-demo
+  name: webapp-demo
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: flaskdemo
+      app: webapp-demo
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: flaskdemo
+        app: webapp-demo
     spec:
       containers:
       - image: praveenshell123/test:25
-        name: flaskdemo
+        name: webapp-demo
         resources: {}
 status: {}
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: lb-service
+  name: argocd-lb-service
   labels:
-    app: lb-service
+    app: argocd-lb-service
 spec:
   type: LoadBalancer
   ports:
   - port: 80
     targetPort: 9000
   selector:
-    app: flaskdemo
+    app: webapp-demo
