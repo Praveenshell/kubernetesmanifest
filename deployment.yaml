@@ -4,7 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: flaskdemo
-  name: flaskdemo
+  name: webappdemo
 spec:
   replicas: 3
   selector:
@@ -19,14 +19,14 @@ spec:
     spec:
       containers:
       - image: raj80dockerid/test:6
-        name: flaskdemo
+        name: webappdemo
         resources: {}
 status: {}
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: lb-service
+  name: argocd-lb-service
   labels:
     app: lb-service
 spec:
